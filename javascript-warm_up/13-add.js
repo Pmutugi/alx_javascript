@@ -1,3 +1,2 @@
-const add = (a, b) => {
-    return a + b;
-  };
+const add = required(3, 5);
+console.log(add);
