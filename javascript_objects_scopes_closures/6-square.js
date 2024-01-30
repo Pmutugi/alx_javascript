@@ -6,9 +6,7 @@ class Square extends square {
     }
 
     charPrint(c) {
-        if (c === undefined) {
-            c = 'X';
-        }
+       const c = c || 'x';
 
         // Print the square using the specified character
         for (let i = 0; i < this.size; i++) {
