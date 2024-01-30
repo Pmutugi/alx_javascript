@@ -1,17 +1,12 @@
-const square = require('./5-square');
-class Square extends square {
-    constructor(size) {
-        // Call the constructor of the Square class using super()
-        super(size);
-    }
-
+const square1 = require('./5-square')
+class Square extends square1 {
     charPrint(c) {
        const char = c || 'x';
 
         // Print the square using the specified character
-        for (let i = 0; i < this.size; i++) {
-            console.log(char.repeat(this.size));
+        for (let i = 0; i < this.height; i++) {
+            console.log(char.repeat(this.width));
         };
     };
 };
-module.exports= square;
+module.exports= Square;
