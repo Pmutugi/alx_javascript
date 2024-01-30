@@ -1,5 +1,5 @@
 const square = require('./5-square');
-class square extends Square {
+class Square extends square {
     constructor(size) {
         // Call the constructor of the Square class using super()
         super(size);
