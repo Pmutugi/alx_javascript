@@ -1,3 +1,3 @@
-function add(num, num2){
-  console.log (add(num, num2))
+exports.add = function(a, b){
+    return a + b;
 }
