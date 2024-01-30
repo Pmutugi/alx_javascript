@@ -1,3 +1,3 @@
-function add(num, mun2){
-    console.log(num + num2)
+function add(num, num2){
+    return console.log(num + num2)
 }
