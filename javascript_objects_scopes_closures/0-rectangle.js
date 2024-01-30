@@ -1,5 +1,6 @@
 // an empty function class
-class people{
+class Rectangle{
 
     
 }
+module.exports = Rectangle;
