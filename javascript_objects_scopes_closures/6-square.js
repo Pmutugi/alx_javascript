@@ -6,12 +6,12 @@ class Square extends square {
     }
 
     charPrint(c) {
-       const c = c || 'x';
+       const char = c || 'x';
 
         // Print the square using the specified character
         for (let i = 0; i < this.size; i++) {
-            console.log(c.repeat(this.size));
-        }
-    }
-}
-module.exports= square;
+            console.log(char.repeat(this.size));
+        };
+    };
+};
+module.exports= Square;
