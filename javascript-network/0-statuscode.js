@@ -1,4 +1,3 @@
-
 const request = require('request');
 
 // Check if the URL is provided as a command-line argument
@@ -17,5 +16,5 @@ request.get(url, (error, response) => {
   }
 
   // Display the status code
-  console.log(code: ${response.statusCode});
+  console.log(`code: ${response.statusCode}`);
 });
