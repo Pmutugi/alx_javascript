@@ -30,6 +30,5 @@ request(url, (error, response, body) => {
       console.error('Error writing to file:', err);
       process.exit(1);
     }
-    console.log(`Webpage content successfully saved to ${filePath}`);
   });
 });
