@@ -1,15 +1,21 @@
 
 const request = require('request');
 
-const getUrlStatusCode = async (url) => {
-  try {
-    const response = await axios.get(url);
-    console.log(`code: ${response.status}`);
-  } catch (error) {
-    if (error.response) {
-      console.error(`Error - Status code: ${error.response.status}`);
-    } else {
-      console.error(`Error making request: ${error.message}`);
-    }
+// Check if the URL is provided as a command-line argument
+if (process.argv.length < 3) {
+  console.error('Usage: node get_status.js <URL>');
+  process.exit(1);
+}
+
+const url = process.argv[2];
+
+// Make a GET request using the 'request' module
+request.get(url, (error, response) => {
+  if (error) {
+    console.error('Error:', error.message);
+    process.exit(1);
   }
-};
+
+  // Display the status code
+  console.log(code: ${response.statusCode});
+});
