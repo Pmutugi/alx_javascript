@@ -1,41 +1,14 @@
-const request = require('request');
+#!/usr/bin/node //tells the operating system that this script should be executed using the Node.js interpreter.
+const request = require('request');//This line imports the request module, which allows us to make HTTP requests.
+request(process.argv[2], function (error, response, body) {//This line makes a GET request to the URL provided as the first command-line argument (process.argv[2]). When the request completes, it executes a 
+    //callback function with three arguments: error, response, and
 
-const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
-const characterId = 18;
-
-// Function to fetch data from the API
-function fetchData(url) {
-    return new Promise((resolve, reject) => {
-        request(url, (error, response, body) => {
-            if (error) {
-                reject(error);
-            } else {
-                resolve(JSON.parse(body));
-            }
-        });
-    });
-}
-
-// Function to count movies where Wedge Antilles is present
-async function countMoviesWithWedgeAntilles() {
-    try {
-        const filmsData = await fetchData(apiUrl);
-        const films = filmsData.results;
-
-        let count = 0;
-
-        for (const film of films) {
-            const characters = film.characters;
-            if (characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)) {
-                count++;
-            }
-        }
-
-        console.log(`Number of movies where Wedge Antilles is present: ${count}`);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
-
-// Call the function to count movies with Wedge Antilles
-countMoviesWithWedgeAntilles();
+if (!error) {
+    const results = JSON.parse(body).results;
+    console.log(results.reduce((count, movie) => {
+      return movie.characters.find((character) => character.endsWith('/18/'))
+        ? count + 1
+        : count;
+    }, 0));
+  }
+});
